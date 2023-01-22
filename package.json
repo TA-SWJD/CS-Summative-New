@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.2.3",
     "firebase": "^9.14.0",
-    "vue": "^3.2.41"
+    "pinia": "^2.0.29",
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
