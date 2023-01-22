@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import axios from 'axios';
 import { ref } from 'vue';
+import { firestore } from "../firebase/index";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 export const useStore = defineStore('store', {
   state: () => {
