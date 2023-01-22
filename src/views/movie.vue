@@ -5,12 +5,12 @@ import MovieVue from '../components/movies.vue'
 </script>
 
 <template>
-    <div class="Homepage">
-        <HeaderVue v-bind:Login="true" />
-        <Suspense>
-            <MovieVue />
-        </Suspense>
-    </div>
+  <div class="Homepage">
+    <HeaderVue v-bind:Login="true" />
+    <Suspense>
+      <MovieVue />
+    </Suspense>
+  </div>
 </template>
 
 <style scoped>

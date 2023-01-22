@@ -4,10 +4,10 @@ import cartVue from '../components/cart.vue';
 </script>
 
 <template>
-    <div>
-        <HeaderVue v-bind:Login="true" />
-        <cartVue />
-    </div>
+  <div>
+    <HeaderVue v-bind:Login="true" />
+    <cartVue />
+  </div>
 </template>
 
 <style scoped>

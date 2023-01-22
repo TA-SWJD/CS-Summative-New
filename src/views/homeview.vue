@@ -6,17 +6,17 @@ import FooterVue from '../components/Footer.vue';
 </script>
 
 <template>
-    <div class="Homepage">
-        <HeaderVue v-bind:Login="false" />
-        <HeroVue />
-        <FooterVue />
-        <Router-View />
-    </div>
+  <div class="Homepage">
+    <HeaderVue v-bind:Login="false" />
+    <HeroVue />
+    <FooterVue />
+    <Router-View />
+  </div>
 
 </template>
 
 <style scoped>
 .Homepage {
-    background-color: gray;
+  background-color: gray;
 }
 </style>
