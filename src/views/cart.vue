@@ -1,6 +1,6 @@
 <script setup>
 import HeaderVue from '../components/Header.vue';
-import cartVue from '../components/cart.vue';
+import cartVue from '../components/Cart.vue';
 </script>
 
 <template>

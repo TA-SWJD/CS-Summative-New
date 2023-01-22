@@ -1,6 +1,6 @@
 <script setup>
 import HeaderVue from '../components/Header.vue'
-import MovieVue from '../components/movies.vue'
+import MovieVue from '../components/Movie.vue'
 
 </script>
 

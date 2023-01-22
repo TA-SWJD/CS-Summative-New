@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "../views/Login.vue";
-import Home from "../views/homeview.vue";
-import Movie from "../views/movie.vue";
-import Cart from "../views/cart.vue";
-import LoginHome from "../views/Loginhome.vue";
+import Home from "../views/HomeView.vue";
+import Movie from "../views/Movie.vue";
+import Cart from "../views/Cart.vue";
+import LoginHome from "../views/LoginHome.vue";
 import Register from "../views/Register.vue";
 
 const routes = [

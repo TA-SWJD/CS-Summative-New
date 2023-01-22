@@ -1,7 +1,7 @@
 <script setup>
 import { useStore, useCart } from "../store/index.js";
 import { ref } from "vue";
-import Modal from '../components/Modal.vue';
+import Modal from './Modal.vue';
 
 const store = useStore();
 await store.getMovies();
