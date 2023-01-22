@@ -4,11 +4,16 @@ import Home from "../views/homeview.vue";
 import Movie from "../views/movie.vue";
 import Cart from "../views/cart.vue";
 import LoginHome from "../views/Loginhome.vue";
+import Register from "../views/Register.vue";
 
 const routes = [
   {
     path: '/',
     component:Home,
+  },
+  {
+    path: '/Register',
+    component: Register,
   },
   {
     path: '/Login',

@@ -21,7 +21,7 @@ const props = defineProps({
       <router-link to="/Login" custom v-slot="{ navigate }" v-if="!Login">
         <button @click="navigate" role="link">Login</button>
       </router-link>
-      <router-link to="/Login" custom v-slot="{ navigate }" v-if="!Login">
+      <router-link to="/Register" custom v-slot="{ navigate }" v-if="!Login">
         <button @click="navigate" role="link">Register</button>
       </router-link>
       <router-link to="/Cart" custom v-slot="{ navigate }" v-if="Login">
