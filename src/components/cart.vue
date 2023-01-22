@@ -11,9 +11,9 @@ const store = useStore();
     <div class="purchased" v-for="purchased in cart.purchase">
       <div class="content">
         {{ store.movies.filter(x => x.id == purchased)[0].title }}
-        <button class="remove" @click="cart.removing(purchased)">Remove</button>
         <img :src="'https://image.tmdb.org/t/p/w500' + store.movies.filter(x => x.id == purchased)[0].poster"
           class="poster">
+        <button class="remove" @click="cart.removing(purchased)">Remove</button>
       </div>
     </div>
   </div>
@@ -76,8 +76,12 @@ img {
 }
 
 .remove {
+  float: right;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
 }
 
 .remove:hover {
