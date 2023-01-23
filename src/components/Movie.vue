@@ -59,7 +59,7 @@ const search = async (direction) => {
 
 <template>
   <input class="search" type="search" placeholder="Search:" v-model="criteria" @keydown.enter="search(0)" />
-  <select class="select" v-model="genre" @change="getGenres()">
+  <select class="select" v-model="genre" @change="getGenres()"> 
     <option value="Action">Action</option>
     <option value="Family">Family</option>
     <option value="Science Fiction">Science Fiction</option>
