@@ -32,9 +32,6 @@ let data = (
           title: data.title,
           date: data.release_date,
         })">Add To Cart</button>
-        <!-- <p v-if="cart.purchase.includes(props.value.id)" class="message">
-          Item Added !
-        </p> -->
       </div>
     </div>
   </Teleport>

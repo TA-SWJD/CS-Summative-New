@@ -1,6 +1,8 @@
 <script setup>
 import { useStore } from "../store/index.js"
 const store = useStore();
+
+
 </script>
 
 <template>
@@ -14,7 +16,7 @@ const store = useStore();
       </div>
     </div>
   </div>
-  <!-- <button class="p-button" @click="cart.clear()">Purchase</button> -->
+  <button class="p-button" @click="removeFromCart()">Purchase</button>
   <img src="../assets/Footer.avif" class="FooterIMG">
 
 </template>
@@ -40,7 +42,7 @@ const store = useStore();
 }
 
 .p-button {
-  float: right;
+  float: left;
   font-size: 25px;
   width: 200px;
   height: 60px;
