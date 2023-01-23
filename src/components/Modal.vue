@@ -1,26 +1,38 @@
 <script setup>
-import { useCart, useStore } from "../store/index.js";
-
-const props = defineProps(["id"]);
+import axios from "axios";
+import { useStore } from "../store/index.js";
+const props = defineProps(["value"]);
 const emits = defineEmits(["toggleModal"]);
-const cart = useCart();
+const store = useStore();
+
+let data = (
+  await axios.get(`https://api.themoviedb.org/3/movie/${props.value.id}`, {
+    params: {
+      api_key: "d2efec38e7d74d12122672897f241cbf",
+    },
+  })
+).data;
 </script>
 
 <template>
   <Teleport to="body">
     <div class="modal-outer-container" @click.self="emits('toggleModal')">
       <div class="modal-inner-container">
-        <img :src="'https://image.tmdb.org/t/p/w500' + props.id.poster" class="image">
+        <img v-if="props.value.poster" :src="'https://image.tmdb.org/t/p/w500' + props.value.poster" class="image">
         <button class="close-button" @click="emits('toggleModal')">Close</button>
-        <h1>{{ props.id.title }}</h1>
+        <h1>{{ props.value.title }}</h1>
         <p>
-          Release Date: {{ props.id.release_date }} <br />
-          <br /> Overview: {{ props.id.overview }}
+          Release Date: {{ props.value.release_date }} <br />
+          <br /> Overview: {{ props.value.overview }}
         </p>
-        <button @click="cart.adding(props.id.id)">Add To Cart</button>
-        <p v-if="cart.purchase.includes(props.id.id)" class="message">
+        <button @click="store.addToCart(props.value.id,{
+          id: data.id,
+          poster: data.poster_path,
+          title: data.title,
+          date: data.release_date,})">Add To Cart</button>
+        <!-- <p v-if="cart.purchase.includes(props.value.id)" class="message">
           Item Added !
-        </p>
+        </p> -->
       </div>
     </div>
   </Teleport>

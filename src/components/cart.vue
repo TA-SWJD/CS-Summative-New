@@ -1,23 +1,20 @@
 <script setup>
-import { createApp } from "vue";
-import { useCart, useStore } from "../store/index.js"
-
-const cart = useCart();
+import { useStore } from "../store/index.js"
 const store = useStore();
 </script>
 
 <template>
   <div class="page">
-    <div class="purchased" v-for="purchased in cart.purchase">
+    <div class="purchased" v-for="movie in Array.from(store.cart.values())">
       <div class="content">
-        {{ store.movies.filter(x => x.id == purchased)[0].title }}
-        <img :src="'https://image.tmdb.org/t/p/w500' + store.movies.filter(x => x.id == purchased)[0].poster"
+        {{ movie.title }}
+        <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster"
           class="poster">
-        <button class="remove" @click="cart.removing(purchased)">Remove</button>
+        <button class="remove" @click="store.removeFromCart(movie.id)">Remove</button>
       </div>
     </div>
   </div>
-  <button class="p-button" @click="cart.clear()">Purchase</button>
+  <!-- <button class="p-button" @click="cart.clear()">Purchase</button> -->
   <img src="../assets/Footer.avif" class="FooterIMG">
 
 </template>
