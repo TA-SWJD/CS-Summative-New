@@ -38,7 +38,7 @@ const login = () => {
         <button @click="navigate" role="link">Register</button>
       </router-link>
     </form>
-    <div class="error" v-if="submitted.value == true && data.value == false">
+    <div class="error" v-if="submitted && !data && !isLoggedIn">
       <p>Invalid Username or Password</p>
     </div>
   </div>

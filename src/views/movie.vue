@@ -18,7 +18,6 @@ const getGenres = async () => {
 
 const search = async (direction) => {
   page.value += direction;
-
   let data = (
     await axios.get("https://api.themoviedb.org/3/search/movie", {
       params: {
@@ -45,7 +44,7 @@ const search = async (direction) => {
 <template>
   <HeaderVue v-bind:Login="true" />
   <div class="new">
-    <input type="search" placeholder="Search:" v-model="criteria" @keydown.enter="search(0)" id="searchbar"/>
+    <input type="search" placeholder="Search:" v-model="criteria" @keydown.enter="search(0)" id="searchbar" />
     <select v-model="genre" @change="getGenres()" class="select">
       <option value="Action">Action</option>
       <option value="Family">Family</option>
@@ -53,17 +52,17 @@ const search = async (direction) => {
       <option value="Adventure">Adventure</option>
       <option value="Fantasy">Fantasy</option>
     </select>
-    <template v-if="searchResults.length">
-      <div class="navigation">
-        <button v-show="page > 1" @click="search(-1)">Prev</button>
-        <h1>{{ `Page ${page} of ${totalPages}` }}</h1>
-        <button v-show="page < totalPages" @click="search(1)">Next</button>
-      </div>
-    </template>
   </div>
   <Suspense>
     <MovieVue />
   </Suspense>
+  <template v-if="searchResults.length">
+    <div class="navigation">
+      <button class="Prev" v-show="page > 1" @click="search(-1)">Prev</button>
+      <h2 class="page">{{ `Page ${page} of ${totalPages}` }}</h2>
+      <button class="Next" v-show="page < totalPages" @click="search(1)">Next</button>
+    </div>
+  </template>
 </template>
 
 <style scoped>
@@ -74,7 +73,7 @@ const search = async (direction) => {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#searchbar:hover{
+#searchbar:hover {
   background-color: black;
   color: white;
   font-style: oblique;
@@ -91,5 +90,30 @@ const search = async (direction) => {
 .select:hover {
   background-color: black;
   color: white;
+}
+
+.page {
+  padding-top: 10px;
+  font-size: larger;
+  font-style: bold;
+  text-align: center;
+}
+
+.Prev {
+  padding-top: 10px;
+  float: left;
+  height: 30px;
+  width: 300px;
+}
+
+.Next {
+  padding-bottom: 20px;
+  float: right;
+  height: 30px;
+  width: 300px;
+}
+
+.navigation {
+  padding-top: 30px;
 }
 </style>

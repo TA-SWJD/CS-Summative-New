@@ -7,14 +7,21 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 
+const pass = ref(false);
+const pass2 = ref(true);
 const username = ref("");
 const email = ref("");
 const password1 = ref("");
 const password2 = ref("");
 
 const registerUserByEmail = async () => {
+  if (password1.value == password2.value) {
+    pass.value = true;
+    pass2.value = false;
+  }
   if (password1.value !== password2.value) {
-    console.log("Password issue");
+    pass.value = true;
+    pass.value = true;
     return;
   }
   try {
@@ -41,11 +48,17 @@ const registerUserByGoogle = async () => {
         <input v-model="email" type="email" placeholder="email" /> <br />
         <input v-model="password1" type="password" placeholder="password" /> <br />
         <input v-model="password2" type="password" placeholder="re-enter password" /> <br />
-        <input type="submit" value="Register" id="button"/>
+        <input type="submit" value="Register" id="button" />
       </form>
       <router-link to="/Login" custom v-slot="{ navigate }" v-if="!Login">
         <button @click="navigate" role="link">Login</button>
       </router-link>
+      <div class="authentication" v-if="pass && !pass2">
+        <p>Register Successfully!</p>
+      </div>
+      <div class="authentication" v-if="pass && pass2">
+        <p>Invalid Email or Password!</p>
+      </div>
     </div>
   </div>
 </template>
@@ -88,7 +101,7 @@ input {
   width: 177px;
   height: 40px;
 }
- 
+
 #button:hover {
   background-color: lightslategrey;
   color: antiquewhite;
@@ -103,5 +116,15 @@ button {
 button:hover {
   background-color: black;
   color: white;
+}
+
+.authentication {
+  margin-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+  background-color: black;
+  font-weight: bold;
+  color: red;
 }
 </style>
