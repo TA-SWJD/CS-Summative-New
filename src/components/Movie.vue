@@ -55,7 +55,6 @@ const search = async (direction) => {
     };
   });
 };
-
 </script>
 
 <template>

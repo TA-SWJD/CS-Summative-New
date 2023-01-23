@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import router from "../router";
 
 const pass = ref(false);
 const pass2 = ref(true);
@@ -33,6 +34,7 @@ const registerUserByEmail = async () => {
 const registerUserByGoogle = async () => {
   const provider = new GoogleAuthProvider();
   const user = await signInWithPopup(auth, provider);
+  router.push("/Movie");
 };
 </script>
 

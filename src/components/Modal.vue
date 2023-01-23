@@ -9,6 +9,7 @@ let data = (
   await axios.get(`https://api.themoviedb.org/3/movie/${props.value.id}`, {
     params: {
       api_key: "d2efec38e7d74d12122672897f241cbf",
+      include_adult: "false",
     },
   })
 ).data;
@@ -18,18 +19,19 @@ let data = (
   <Teleport to="body">
     <div class="modal-outer-container" @click.self="emits('toggleModal')">
       <div class="modal-inner-container">
-        <img v-if="props.value.poster" :src="'https://image.tmdb.org/t/p/w500' + props.value.poster" class="image">
+        <img :src="'https://image.tmdb.org/t/p/w500' + props.value.poster" class="image">
         <button class="close-button" @click="emits('toggleModal')">Close</button>
-        <h1>{{ props.value.title }}</h1>
+        <h1>{{ data.title }}</h1>
         <p>
-          Release Date: {{ props.value.release_date }} <br />
-          <br /> Overview: {{ props.value.overview }}
+          Release Date: {{ data.release_date }} <br />
+          <br /> Overview: {{ data.overview }}
         </p>
-        <button @click="store.addToCart(props.value.id,{
+        <button @click="store.addToCart(props.value.id, {
           id: data.id,
           poster: data.poster_path,
           title: data.title,
-          date: data.release_date,})">Add To Cart</button>
+          date: data.release_date,
+        })">Add To Cart</button>
         <!-- <p v-if="cart.purchase.includes(props.value.id)" class="message">
           Item Added !
         </p> -->
