@@ -79,7 +79,7 @@ const search = async (direction) => {
         :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
     </template>
     <template v-else>
-      <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie)"
+      <img class="poster" v-for="movie in store.movies" :id="movie.id" @click="openModal(movie)"
         :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
     </template>
     <Modal v-if="showModal" @toggleModal="closeModal()" :value="selectedId" />

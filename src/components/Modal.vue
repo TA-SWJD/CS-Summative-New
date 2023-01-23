@@ -4,7 +4,6 @@ import { useStore } from "../store/index.js";
 const props = defineProps(["value"]);
 const emits = defineEmits(["toggleModal"]);
 const store = useStore();
-const add = ref(false);
 
 let data = (
   await axios.get(`https://api.themoviedb.org/3/movie/${props.value.id}`, {
